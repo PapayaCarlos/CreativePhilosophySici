@@ -10,9 +10,9 @@ import javax.swing.JFrame;
  * @author PapayaCarlos
  * 
  */
-public class guiApp extends JFrame {// Falta ponerle titulo al frame
+public class GuiApp extends JFrame {// Falta ponerle titulo al frame
 
-	public guiApp() {
+	public GuiApp() {
 
 		JButton[] buttons = new JButton[3];
 		buttons[0] = new JButton("Introducir datos para ID", new ImageIcon(
