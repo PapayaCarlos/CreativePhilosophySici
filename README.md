@@ -1,3 +1,0 @@
-CreativePhilosophySici
-======================
-Final Project 

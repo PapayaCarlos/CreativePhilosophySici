@@ -10,7 +10,7 @@ import javax.swing.UIManager;
  * @author PapayaCarlos
  * 
  */
-public class CojerDatos {
+public class cojerDatos {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -10,16 +10,18 @@ import javax.swing.JFrame;
  * @author PapayaCarlos
  * 
  */
-public class GuiApp extends JFrame {// Falta ponerle titulo al frame
+public class guiApp extends JFrame {// Falta ponerle titulo al frame
 
-	public GuiApp() {
+	public guiApp() {
 
-		JButton[] buttons = new JButton[3];
+		JButton[] buttons = new JButton[4];
 		buttons[0] = new JButton("Introducir datos para ID", new ImageIcon(
 				"images/ICON-Bureau-ID-Card-Service.png"));
 		buttons[1] = new JButton("Leer ID", new ImageIcon("images/reader.jpg"));
 		buttons[2] = new JButton("Exit", new ImageIcon(
 				"images/button_cancel (1).png"));
+		buttons[3] = new JButton("Mini Cashier", new ImageIcon(
+				"images/icon_cashregister.gif"));
 
 		buttons[0].addActionListener(new ActionListener() {
 
@@ -49,10 +51,21 @@ public class GuiApp extends JFrame {// Falta ponerle titulo al frame
 				System.exit(0);
 			}
 		});
+		
+		buttons[3].addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+
+				Transaciones.main(null);
+			}
+
+		});
 		add(buttons[0], BorderLayout.WEST);
 		add(buttons[1], BorderLayout.CENTER);
 		add(buttons[2], BorderLayout.EAST);
+		add(buttons[3], BorderLayout.NORTH);
 
 		pack();
 		// setSize
