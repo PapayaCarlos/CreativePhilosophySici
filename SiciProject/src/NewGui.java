@@ -1,12 +1,12 @@
-package NewGuiTest;
-import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-
-import javax.swing.*;
-import javax.swing.border.*;
-
-import NewGuiTest.TextPrompt.Show;
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 
 public class NewGui {
 
@@ -22,9 +22,9 @@ public class NewGui {
 		JTextField exp = new JTextField(6);
 		JTextField constant = new JTextField(6);
 		
-		TextPrompt coefPrompt = new TextPrompt("Coefficient", coef, Show.FOCUS_LOST);
-		TextPrompt expPrompt = new TextPrompt("Exponent", exp, Show.FOCUS_LOST);
-		TextPrompt constantPrompt = new TextPrompt("Constant", constant, Show.FOCUS_LOST);
+		TextPrompt coefPrompt = new TextPrompt("Coefficient", coef, TextPrompt.Show.FOCUS_LOST);
+		TextPrompt expPrompt = new TextPrompt("Exponent", exp, TextPrompt.Show.FOCUS_LOST);
+		TextPrompt constantPrompt = new TextPrompt("Constant", constant, TextPrompt.Show.FOCUS_LOST);
 		
 		//Style for Jtext boxes
 		Border line = BorderFactory.createLineBorder(Color.PINK);
