@@ -25,9 +25,9 @@ public class cojerDatos {
 
 			do {
 
-				UI.put("OptionPane.background", Color.OPAQUE);
-				UI.put("OptionPane.messagebackground", Color.OPAQUE);
-				UI.put("Panel.background", Color.OPAQUE);
+				UI.put("OptionPane.background", Color.BLUE);
+				UI.put("OptionPane.messagebackground", Color.BLUE);
+				UI.put("Panel.background", Color.blue);
 
 				String nombre = JOptionPane
 						.showInputDialog("Escriba su nombre:");
