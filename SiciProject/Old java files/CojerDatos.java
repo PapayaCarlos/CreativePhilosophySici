@@ -1,8 +1,6 @@
+package Program;
 import java.awt.Color;
-import java.io.File;
 import java.io.PrintWriter;
-import java.io.Writer;
-
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -10,7 +8,7 @@ import javax.swing.UIManager;
  * @author PapayaCarlos
  * 
  */
-public class cojerDatos {
+public class CojerDatos {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -21,13 +19,11 @@ public class cojerDatos {
 
 			PrintWriter pw = new PrintWriter(fileNameString);//para crear un archivo segun el input que el usuario entre.(arreglar)
 
-			UIManager UI = new UIManager();//para los colores (falta buscar forma de poner colores mas claros)
-
 			do {
 
-				UI.put("OptionPane.background", Color.OPAQUE);
-				UI.put("OptionPane.messagebackground", Color.OPAQUE);
-				UI.put("Panel.background", Color.OPAQUE);
+				UIManager.put("OptionPane.background", Color.OPAQUE);
+				UIManager.put("OptionPane.messagebackground", Color.OPAQUE);
+				UIManager.put("Panel.background", Color.OPAQUE);
 
 				String nombre = JOptionPane
 						.showInputDialog("Escriba su nombre:");

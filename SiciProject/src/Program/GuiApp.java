@@ -1,6 +1,8 @@
+package Program;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -10,9 +12,15 @@ import javax.swing.JFrame;
  * @author PapayaCarlos
  * 
  */
-public class guiApp extends JFrame {// Falta ponerle titulo al frame
+public class GuiApp extends JFrame {// Falta ponerle titulo al frame
 
-	public guiApp() {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	public GuiApp() {
 
 		JButton[] buttons = new JButton[4];
 		buttons[0] = new JButton("Introducir datos para ID", new ImageIcon(
@@ -28,7 +36,12 @@ public class guiApp extends JFrame {// Falta ponerle titulo al frame
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				cojerDatos.main(null);
+				try {
+					DataEntry.main(null);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 
@@ -78,7 +91,7 @@ public class guiApp extends JFrame {// Falta ponerle titulo al frame
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		new guiApp();
+		new GuiApp();
 	}
 
 }
