@@ -51,7 +51,12 @@ public class GuiApp extends JFrame {// Falta ponerle titulo al frame
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 
-				MainApp.main(null);
+				try {
+					DataRetrieval.main(null);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 		});
