@@ -6,24 +6,27 @@ import javax.swing.*;
 import javax.swing.border.*;
 import NewGuiTest.TextPrompt.Show;
 
+/**
+ * @author ziekhart, Andres A. Acevedo
+ *
+ */
+
 public class NewGui {
-
-
 
 	public static void main(String[] args) {
 		Toolkit.getDefaultToolkit().beep();
-		String calc;
-		JPanel p = new JPanel();
-		//JPanel p = new JPanel(new GridLayout (5,2,10,10));
+		JPanel p = new JPanel(new GridLayout (5,2,10,10));
 		
 		//JTextFields
-		JTextField coef = new JTextField(6);
-		JTextField exp = new JTextField(6);
-		JTextField constant = new JTextField(6);
+		JTextField name = new JTextField(10);
+		JTextField email = new JTextField(10);
+		JTextField tel = new JTextField(10);
+		JTextField numSocio = new JTextField(10);
 		
-		TextPrompt coefPrompt = new TextPrompt("Coefficient", coef, Show.FOCUS_LOST);
-		TextPrompt expPrompt = new TextPrompt("Exponent", exp, Show.FOCUS_LOST);
-		TextPrompt constantPrompt = new TextPrompt("Constant", constant, Show.FOCUS_LOST);
+		TextPrompt namePrompt = new TextPrompt("Nombre", name, Show.FOCUS_LOST);
+		TextPrompt emailPrompt = new TextPrompt("E-mail", email, Show.FOCUS_LOST);
+		TextPrompt telPrompt = new TextPrompt("Telefono", tel, Show.FOCUS_LOST);
+		TextPrompt numSocioPrompt = new TextPrompt("Numero de Socio", numSocio, Show.FOCUS_LOST);
 		
 		//Style for Jtext boxes
 		Border line = BorderFactory.createLineBorder(Color.PINK);
@@ -34,36 +37,23 @@ public class NewGui {
 		CompoundBorder border = new CompoundBorder(line, empty);
 
 		//Applying style to designated JText vars
-		coef.setBorder(border);
-		exp.setBorder(border);
-		constant.setBorder(border);
+		name.setBorder(border);
+		email.setBorder(border);
+		tel.setBorder(border);
+		numSocio.setBorder(border);
 		
 		// Jpanel
-		p.add(coef);
-		p.add(new JLabel("* x^"));
-		p.add(exp);
-		p.add(new JLabel("+"));
-		p.add(constant);
+		p.add(new JLabel("Nombre"));
+		p.add(name);
+		p.add(new JLabel("E-mail"));
+		p.add(email);
+		p.add(new JLabel("Telefono"));
+		p.add(tel);
+		p.add(new JLabel("Numero de Socio"));
+		p.add(numSocio);
 		
-		JOptionPane.showConfirmDialog(null,  p, "Basic Derivative Calc", JOptionPane.OK_CANCEL_OPTION);
-		
-		//Conversion from string  to int
-		String strCoef = coef.getText();
-		String strExp = exp.getText();
-		int intExp = Integer.parseInt(strExp);
-		int intCoef = Integer.parseInt(strCoef);
-		//Multiply
-		int mult = intExp * intCoef;
-		intExp -=1;
-		if(intExp <0)
-			calc = mult +"/x^" + (intExp/-1);
-		else
-			calc = mult +"x^"+ intExp;
-
-		JOptionPane.showMessageDialog(null, calc );
+		JOptionPane.showConfirmDialog(null,  p, "Info taker", JOptionPane.OK_CANCEL_OPTION);
 		
 	}
 	
-
-
 }
