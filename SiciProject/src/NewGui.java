@@ -10,7 +10,6 @@ import NewGuiTest.TextPrompt.Show;
  * @author ziekhart, Andres A. Acevedo
  *
  */
-
 public class NewGui {
 
 	public static void main(String[] args) {
@@ -23,13 +22,26 @@ public class NewGui {
 		JTextField tel = new JTextField(10);
 		JTextField numSocio = new JTextField(10);
 		
+		//Style for JTextFields
 		TextPrompt namePrompt = new TextPrompt("Nombre", name, Show.FOCUS_LOST);
 		TextPrompt emailPrompt = new TextPrompt("E-mail", email, Show.FOCUS_LOST);
 		TextPrompt telPrompt = new TextPrompt("Telefono", tel, Show.FOCUS_LOST);
 		TextPrompt numSocioPrompt = new TextPrompt("Numero de Socio", numSocio, Show.FOCUS_LOST);
 		
+		namePrompt.setForeground( Color.BLUE );
+		namePrompt.changeAlpha(0.5f);
+		
+		emailPrompt.setForeground( Color.BLUE );
+		emailPrompt.changeAlpha(0.5f);
+		
+		telPrompt.setForeground( Color.BLUE );
+		telPrompt.changeAlpha(0.5f);
+		
+		numSocioPrompt.setForeground( Color.BLUE );
+		numSocioPrompt.changeAlpha(0.5f);
+		
 		//Style for Jtext boxes
-		Border line = BorderFactory.createLineBorder(Color.PINK);
+		Border line = BorderFactory.createLineBorder(Color.BLUE);
 		Border empty = new EmptyBorder (0,5,0,0);
 									// (x, y, z , v)
 									//x decides size of JTextFields(puts text in bottom, Y decides length of extra line(text goes to the right),
@@ -55,5 +67,4 @@ public class NewGui {
 		JOptionPane.showConfirmDialog(null,  p, "Info taker", JOptionPane.OK_CANCEL_OPTION);
 		
 	}
-	
 }
