@@ -1,4 +1,5 @@
 package Program;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
@@ -10,6 +11,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,126 +27,76 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class DataManagement {
+public class DataManagement extends JFrame {
 
 	public static void main(String[] args) {
-		new DataManagement();
+		new DataManagement(null);
 	}
 
-	public DataManagement() {
+	private JPanel buttonPanel;
+	private JButton ok;
+	private JButton edit;
+	private JButton delete;
+	private DisplayPanel display;
 
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-				}
-
-				JFrame frame = new JFrame("Testing");
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setLayout(new BorderLayout());
-				frame.add(new SearchingPane());
-				frame.pack();
-				frame.setLocationRelativeTo(null);
-				frame.setVisible(true);
-			}
-		});
-	}
-
-	public class SearchingPane extends JPanel {
-
-		private static final long serialVersionUID = 2588412699769027138L;
-		private JTextField findText;
-		private JButton search;
-		private DefaultListModel<String> model;
-		private JButton edit;
+	public DataManagement(Socios members) {
 		
-		@SuppressWarnings("rawtypes")
-		public SearchingPane() {
-			setLayout(new BorderLayout());
-			JPanel searchPane = new JPanel(new GridBagLayout());
+		setTitle("Member");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+		display = new DisplayPanel(members);
+		
+		buildButtonPanel();
+		
+		add(display, BorderLayout.CENTER);
+		add(buttonPanel, BorderLayout.SOUTH);
+		pack();
+		setVisible(true);
+		
+	}
+	
 
-			GridBagConstraints gbc = new GridBagConstraints();
-			gbc.gridx = 0;
-			gbc.gridy = 0;
-			gbc.insets = new Insets(2, 2, 2, 2);
-			searchPane.add(new JLabel("Find: "), gbc);
-			gbc.gridx++;
-			gbc.fill = GridBagConstraints.HORIZONTAL;
-			gbc.weightx = 1;
-			findText = new JTextField(20);
-			searchPane.add(findText, gbc);
-
-			gbc.gridx++;
-			gbc.fill = GridBagConstraints.NONE;
-			gbc.weightx = 0;
-			search = new JButton("Search");
-			searchPane.add(search, gbc);
-			
-			gbc.gridx++;
-			gbc.fill = GridBagConstraints.NONE;
-			gbc.weightx = 0;
-			edit = new JButton("Edit");
-			searchPane.add(edit, gbc);
-			
-			add(searchPane, BorderLayout.NORTH);
-
-			model = new DefaultListModel<>();
-			@SuppressWarnings("unchecked")
-			JList list = new JList(model);
-			add(new JScrollPane(list));
-
-			ActionHandler handler = new ActionHandler();
-
-			search.addActionListener(handler);
-			findText.addActionListener(handler);
+	public void buildButtonPanel()
+	{
+		buttonPanel = new JPanel();
+		ok = new JButton("Okay");
+		edit = new JButton("Edit");
+		delete = new JButton("Delete");
+		
+		ok.addActionListener(new ButtonListener());
+		edit.addActionListener(new ButtonListener());
+		delete.addActionListener(new ButtonListener());
+	}
+	
+	private class ButtonListener implements ActionListener
+	{
+		@SuppressWarnings("unused")
+		public void actionPerformed(ActionEvent e, Socios members, int num)
+		{	
+			if(e.getSource() == ok)
+			{
+				System.exit(0);
+			}
+			else if(e.getSource() == edit)
+			{	
+				dataEdit(members, num);
+			}
+			else
+				deleteSocio(members, num);
 		}
 
-		public class ActionHandler implements ActionListener {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				model.removeAllElements();
-				//                    BufferedReader reader = null;
-
-				String searchText = findText.getText();
-				try (BufferedReader reader = new BufferedReader(new FileReader(new File("test.txt")))) {
-
-					String text = null;
-					while ((text = reader.readLine()) != null) {
-						if (text.contains(searchText)) {
-							model.addElement(text);
-							
-							edit.addActionListener(new ActionListener() {
-								@Override
-								public void actionPerformed(ActionEvent arg0) {
-									// TODO Auto-generated method stub
-									try {
-										DataEntry.main(null);
-									} catch (IOException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									};
-								}
-
-							});
-						}
-					}
-				} catch (IOException exp) {
-
-					exp.printStackTrace();
-					JOptionPane.showMessageDialog(SearchingPane.this, "Could not create file", "Error", JOptionPane.ERROR_MESSAGE);
-
-				}
-			}
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
-
-	public void dataEdit(){
-		JTextField editName = new JTextField();
-		JTextField editEmail = new JTextField();
-		JTextField editTel = new JTextField();
-		JTextField editNumSocio = new JTextField();
+	
+	public void dataEdit(Socios members, int num) {
+		JTextField editName = new JTextField(((List<Socios>) members).get(searchNum(members, num)).getName());
+		JTextField editEmail = new JTextField(((List<Socios>) members).get(searchNum(members, num)).getEmail());
+		JTextField editTel = new JTextField(((List<Socios>) members).get(searchNum(members, num)).getTel());
+		JTextField editNumSocio = new JTextField(((List<Socios>) members).get(searchNum(members, num)).getNum());
 
 		JPanel editPane = new JPanel();
 		
@@ -155,6 +110,20 @@ public class DataManagement {
 		editPane.add(editNumSocio);
 		
 		JOptionPane.showConfirmDialog(null,editPane, "DummyWindow", 0);
+	}
+	
+	public int searchNum(Socios members, int num)
+	{	
+		int k = 0;
+		while (Integer.parseInt(((List<Socios>) members).get(k).getNum()) != num)
+			k++;
+		return k;
+		
+	}
+	
+	public void deleteSocio(Socios members, int num)
+	{
+		((List<Socios>) members).remove(searchNum(members, num));
 	}
 
 }
