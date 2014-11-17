@@ -14,10 +14,12 @@ import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import Program.TextPrompt.Show;
+import java.util.ArrayList;
 
 /**
  * @author github.com/ziekhart/, Andres A. Acevedo
  */
+
 public class DataEntry {
 
 	public static void main(String[] args) throws IOException {
@@ -85,12 +87,16 @@ public class DataEntry {
 			}
 
 			Toolkit.getDefaultToolkit().beep();
-
+			
+			
 			//String versions
 			String strName = name.getText();
 			String strEmail = email.getText();
 			String strTel = tel.getText();
 			String strNumSocio = numSocio.getText();
+			Socios miembro = new Socios(strName, strEmail, strTel, strNumSocio);
+			ArrayList<Socios> members = new ArrayList<Socios>();
+			members.add(miembro);
 
 			pw.println(strName);
 			pw.println(strEmail);
