@@ -116,13 +116,7 @@ public class DataManagement {
 							edit.addActionListener(new ActionListener() {
 								@Override
 								public void actionPerformed(ActionEvent arg0) {
-									// TODO Auto-generated method stub
-									try {
-										DataEntry.main(null);
-									} catch (IOException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									};
+									dataEdit();
 								}
 
 							});
@@ -139,59 +133,8 @@ public class DataManagement {
 	}
 
 	public void dataEdit(){
-		JTextField editName = new JTextField();
-		JTextField editEmail = new JTextField();
-		JTextField editTel = new JTextField();
-		JTextField editNumSocio = new JTextField();
-
-		JPanel editPane = new JPanel();
-		
-		editPane.add(new JLabel("Nombre"));
-		editPane.add(editName);
-		editPane.add(new JLabel("E-mail"));
-		editPane.add(editEmail);
-		editPane.add(new JLabel("Telefono"));
-		editPane.add(editTel);
-		editPane.add(new JLabel("Numero de Socio"));
-		editPane.add(editNumSocio);
-		
-		JOptionPane.showConfirmDialog(null,editPane, "DummyWindow", 0);
+		JOptionPane.showMessageDialog(null,"Sorry, this function does not work yet." , "Error", 0);
 	}
 
 }
-//	
-//	public void dataEdit(Socios members, int num) {
-//		JTextField editName = new JTextField(((List<Socios>) members).get(searchNum(members, num)).getName());
-//		JTextField editEmail = new JTextField(((List<Socios>) members).get(searchNum(members, num)).getEmail());
-//		JTextField editTel = new JTextField(((List<Socios>) members).get(searchNum(members, num)).getTel());
-//		JTextField editNumSocio = new JTextField(((List<Socios>) members).get(searchNum(members, num)).getNum());
-//
-//		JPanel editPane = new JPanel();
-//		
-//		editPane.add(new JLabel("Nombre"));
-//		editPane.add(editName);
-//		editPane.add(new JLabel("E-mail"));
-//		editPane.add(editEmail);
-//		editPane.add(new JLabel("Telefono"));
-//		editPane.add(editTel);
-//		editPane.add(new JLabel("Numero de Socio"));
-//		editPane.add(editNumSocio);
-//		
-//		JOptionPane.showConfirmDialog(null,editPane, "DummyWindow", 0);
-//	}
-//	
-//	public int searchNum(Socios members, int num)
-//	{	
-//		int k = 0;
-//		while (Integer.parseInt(((List<Socios>) members).get(k).getNum()) != num)
-//			k++;
-//		return k;
-//		
-//	}
-//	
-//	public void deleteSocio(Socios members, int num)
-//	{
-//		((List<Socios>) members).remove(searchNum(members, num));
-//	}
-//
-//}
+
