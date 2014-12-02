@@ -28,7 +28,7 @@ public class GuiApp extends JFrame {// Falta ponerle titulo al frame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("images/reader.png"));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("resources/images/reader.png"));
 		
 		JButton[] buttons = new JButton[4];
 		buttons[0] = new JButton(new ImageIcon("resources/images/write.png"));
