@@ -15,7 +15,7 @@ public class DataRetrieval {
 	}
 	
 	public static String readFile()throws IOException{
-		String filename = "test.txt";
+		String filename = "resources/test.txt";
 		File file = new File(filename);
 		StringBuffer contents = new StringBuffer();
 		BufferedReader reader = null;

@@ -134,6 +134,7 @@ public class DataManagement {
 
 	public void dataEdit(){
 		JOptionPane.showMessageDialog(null,"Sorry, this function does not work yet." , "Error", 0);
+		
 	}
 
 }

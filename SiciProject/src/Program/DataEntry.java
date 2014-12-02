@@ -26,7 +26,7 @@ public class DataEntry {
 		JPanel p = new JPanel(new GridLayout (5,2,10,10));
 		JPanel loopy = new JPanel();
 
-		PrintWriter pw = new PrintWriter (new FileWriter("test.txt", true));
+		PrintWriter pw = new PrintWriter (new FileWriter("resources/test.txt", true));
 
 		boolean check;
 		//JTextFields
