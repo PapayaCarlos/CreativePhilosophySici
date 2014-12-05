@@ -106,13 +106,18 @@ public class DataManagement {
 				//                    BufferedReader reader = null;
 
 				String searchText = findText.getText();
-				try (BufferedReader reader = new BufferedReader(new FileReader(new File("test.txt")))) {
+				try (BufferedReader reader = new BufferedReader(new FileReader(new File("resources/test.txt")))) {
 
 					String text = null;
 					while ((text = reader.readLine()) != null) {
 						if (text.contains(searchText)) {
 							model.addElement(text);
-							
+							if(text.contains(searchText))
+								model.addElement(reader.readLine());
+								model.addElement(reader.readLine());
+								model.addElement(reader.readLine());
+
+								
 							edit.addActionListener(new ActionListener() {
 								@Override
 								public void actionPerformed(ActionEvent arg0) {
