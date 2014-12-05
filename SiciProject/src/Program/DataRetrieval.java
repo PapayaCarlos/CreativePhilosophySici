@@ -1,17 +1,60 @@
 package Program;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import javax.swing.JOptionPane;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 /**
  * @author github.com/ziekhart/, Andres A. Acevedo
  */
 public class DataRetrieval {
 	
 	public static void main(String args[]) throws IOException {
-		JOptionPane.showMessageDialog(null, readFile(), "Retrieval",0);
+		readFrame();
+	}
+	
+	public static JFrame readFrame(){
+		final JFrame frame = new JFrame("Testing");
+		JPanel panel = new JPanel(new FlowLayout());
+		JButton button = new JButton("Ok");
+		frame.setLayout(new FlowLayout());
+		JTextArea a = new JTextArea();
+		try {
+			a.setText(readFile());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		JScrollPane scrollPane = new JScrollPane(a);
+		scrollPane.setPreferredSize(new Dimension(200,250));
+		a.setEditable(false);
+		frame.setResizable(false);
+		frame.add(scrollPane);
+		frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+		panel.add(button);
+		frame.add(panel);
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+		
+		button.addActionListener(new ActionListener()
+		{
+		public void actionPerformed(ActionEvent event){
+			frame.setVisible(false);
+		}
+		});		
+		
+
+		return frame;
 	}
 	
 	public static String readFile()throws IOException{
