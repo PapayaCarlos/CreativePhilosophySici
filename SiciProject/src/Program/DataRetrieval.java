@@ -1,6 +1,7 @@
 package Program;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -24,23 +25,24 @@ public class DataRetrieval {
 	}
 	
 	public static JFrame readFrame(){
-		final JFrame frame = new JFrame("Testing");
+		final JFrame frame = new JFrame("Ver ID");
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("resources/images/reader.png"));
 		JPanel panel = new JPanel(new FlowLayout());
 		JButton button = new JButton("Ok");
 		frame.setLayout(new FlowLayout());
-		JTextArea a = new JTextArea();
+		JTextArea area = new JTextArea();
 		try {
-			a.setText(readFile());
+			area.setText(readFile());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		JScrollPane scrollPane = new JScrollPane(a);
+		JScrollPane scrollPane = new JScrollPane(area);
 		scrollPane.setPreferredSize(new Dimension(200,250));
-		a.setEditable(false);
+		area.setEditable(false);
+		panel.add(button);
 		frame.setResizable(false);
 		frame.add(scrollPane);
 		frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-		panel.add(button);
 		frame.add(panel);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
