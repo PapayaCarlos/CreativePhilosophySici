@@ -8,13 +8,13 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.SwingConstants;
 
 /**
- * @author PapayaCarlos
+ * @authors PapayaCarlos, & github.com/ziekhart/, Andres A. Acevedo
  * 
  */
-
-public class GuiApp extends JFrame {// Falta ponerle titulo al frame
+public class GuiApp extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
@@ -26,16 +26,31 @@ public class GuiApp extends JFrame {// Falta ponerle titulo al frame
 	
 		JFrame frame = new JFrame("Creative Solutions");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("resources/images/reader.png"));
+		frame.setResizable(false);
 		
 		JButton[] buttons = new JButton[4];
-		buttons[0] = new JButton(new ImageIcon("resources/images/write.png"));
-		buttons[1] = new JButton(new ImageIcon("resources/images/reader.png"));
-		buttons[2] = new JButton( new ImageIcon("resources/images/Magnifying_glass.png"));
-		buttons[3] = new JButton(new ImageIcon("resources/images/icon_cashregister.gif"));
+		buttons[0] = new JButton("Entrar usuario nuevo", new ImageIcon("resources/images/write.png"));
+		buttons[1] = new JButton("Ver datos de usuarios",new ImageIcon("resources/images/reader.png"));
+		buttons[2] = new JButton("Buscar usuarios",new ImageIcon("resources/images/Magnifying_glass.png"));
+		buttons[3] = new JButton("Calculador de cambio",new ImageIcon("resources/images/icon_cashregister.gif"));
+		//Formatting
+		buttons[0].setVerticalTextPosition(SwingConstants.BOTTOM);
+		buttons[0].setVerticalAlignment(SwingConstants.BOTTOM);
+		buttons[0].setHorizontalTextPosition(SwingConstants.CENTER);
 
+		buttons[1].setVerticalTextPosition(SwingConstants.BOTTOM);
+		buttons[1].setVerticalAlignment(SwingConstants.BOTTOM);
+		buttons[1].setHorizontalTextPosition(SwingConstants.CENTER);
+		
+		buttons[2].setVerticalTextPosition(SwingConstants.BOTTOM);
+		buttons[2].setVerticalAlignment(SwingConstants.TOP);
+		buttons[2].setHorizontalTextPosition(SwingConstants.CENTER);
+		
+		buttons[3].setVerticalTextPosition(SwingConstants.BOTTOM);
+		buttons[3].setVerticalAlignment(SwingConstants.TOP);
+		buttons[3].setHorizontalTextPosition(SwingConstants.CENTER);
+		
 		buttons[0].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -75,5 +90,7 @@ public class GuiApp extends JFrame {// Falta ponerle titulo al frame
 		frame.add(buttons[2], BorderLayout.EAST);
 		frame.add(buttons[3], BorderLayout.NORTH);
 		frame.pack();
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
 	}
 }
