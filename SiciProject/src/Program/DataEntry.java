@@ -81,7 +81,7 @@ public class DataEntry {
 
 		do
 		{
-			if(JOptionPane.showConfirmDialog(null,  p, "Info taker", 0)== JOptionPane.NO_OPTION)
+			if(JOptionPane.showConfirmDialog(null,  p, "Entrar ID", 0)== JOptionPane.NO_OPTION)
 			{
 				break;
 			}
