@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -39,8 +40,8 @@ public class DataManagement {
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
 				}
 
-				JFrame frame = new JFrame("Testing");
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				JFrame frame = new JFrame("Buscar ID");
+				frame.setIconImage(Toolkit.getDefaultToolkit().getImage("resources/images/Magnifying_glass.png"));
 				frame.setLayout(new BorderLayout());
 				frame.add(new SearchingPane());
 				frame.pack();
