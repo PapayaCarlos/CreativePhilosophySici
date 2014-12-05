@@ -24,16 +24,16 @@ public class GuiApp extends JFrame {
 	
 	public GuiApp() {
 	
-		JFrame frame = new JFrame("Creative Solutions");
+		JFrame frame = new JFrame("Creative Systems");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("resources/images/reader.png"));
 		frame.setResizable(false);
 		
 		JButton[] buttons = new JButton[4];
-		buttons[0] = new JButton("Entrar usuario nuevo", new ImageIcon("resources/images/write.png"));
-		buttons[1] = new JButton("Ver datos de usuarios",new ImageIcon("resources/images/reader.png"));
-		buttons[2] = new JButton("Buscar usuarios",new ImageIcon("resources/images/Magnifying_glass.png"));
-		buttons[3] = new JButton("Calculador de cambio",new ImageIcon("resources/images/icon_cashregister.gif"));
+		buttons[0] = new JButton("Entrar ID nuevo", new ImageIcon("resources/images/write.png"));
+		buttons[1] = new JButton("Ver datos de ID",new ImageIcon("resources/images/reader.png"));
+		buttons[2] = new JButton("Buscar ID",new ImageIcon("resources/images/Magnifying_glass.png"));
+		buttons[3] = new JButton("Caja registradora",new ImageIcon("resources/images/icon_cashregister.gif"));
 		//Formatting
 		buttons[0].setVerticalTextPosition(SwingConstants.BOTTOM);
 		buttons[0].setVerticalAlignment(SwingConstants.BOTTOM);
